@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_app/carouselHandler.dart';
+
+
+
+
+
 
 void main() {
   runApp(MaterialApp(
@@ -16,9 +24,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
+
+    final CarouselSlider image_carousel = carouselHandler.getCarouselSlider();
+
     return Scaffold(
 // ------------------------ AppBar ----------------------------------------
       appBar: new AppBar(
+        // make appBar plain. no shoadow.
+        elevation: 0.2,
         backgroundColor: Colors.pink,
         title: Text("Hussain App"),
         actions: <Widget>[
@@ -54,13 +68,67 @@ class _HomePageState extends State<HomePage> {
               onTap: (){},
               child: ListTile(
                 title: Text('HomePage'), // need to have title.
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.home, color: Colors.pink,),
+              ),
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('My Account'), // need to have title.
+                leading: Icon(Icons.person, color: Colors.pink,),
+              ),
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('My Orders'), // need to have title.
+                leading: Icon(Icons.shopping_basket, color: Colors.pink,),
+              ),
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('Catagories'), // need to have title.
+                leading: Icon(Icons.dashboard, color: Colors.pink,),
+              ),
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('Favorites'), // need to have title.
+                leading: Icon(Icons.favorite, color: Colors.pink,),
+              ),
+            ),
+
+            Divider(),
+
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('Settings'), // need to have title.
+                leading: Icon(Icons.settings, color: Colors.pink,),
+              ),
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text('About'), // need to have title.
+                leading: Icon(Icons.help, color: Colors.pink,),
               ),
             ),
 
           ],
         ),
       ),
+
+      body: new ListView(
+        children: <Widget>[
+          image_carousel,
+          Divider(),
+        ],
+      ),
+
+
     );
   }
 }
