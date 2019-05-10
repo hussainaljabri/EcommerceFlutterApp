@@ -1,11 +1,13 @@
+//flutter mandatory
 import 'package:flutter/material.dart';
+
+// external package imports
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_app/carouselHandler.dart';
 
-
-
-
+// my own imports
+import 'package:flutter_app/components/carouselHandler.dart';
+import 'package:flutter_app/components/horizontal_listview.dart';
 
 
 void main() {
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
 
-    final CarouselSlider image_carousel = carouselHandler.getCarouselSlider();
+
 
     return Scaffold(
 // ------------------------ AppBar ----------------------------------------
@@ -123,8 +125,14 @@ class _HomePageState extends State<HomePage> {
 
       body: new ListView(
         children: <Widget>[
-          image_carousel,
-          Divider(),
+          MainCarousel(),
+          // padding widget
+          Padding(padding: const EdgeInsets.all(15.0),
+          child: new Text('Categories'),),
+
+          //horizontal list view
+          HorizontalList(),
+
         ],
       ),
 
